@@ -1,0 +1,33 @@
+<?php /* application/views/scripts/cidades/listar.phtml */ ?>
+
+<h1>Lista de cidades</h1>
+
+<p>
+<a href="<?php echo $this->url(array(
+    'controller' => 'cidade',
+    'action'     => 'cadastrar')); ?>" title="Incluir nova cidade">Incluir nova cidade</a>
+</p>
+
+<table cellspacing="1" cellpadding="1" border="1" width="500">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Estado</th>
+            <th>A&ccedil;&otilde;es</th>
+        </tr>
+     </thead>
+     <tbody>
+        <?php foreach ( $this->cidades as $cid) : ?>
+            <tr>
+                <td><?php echo $cid->getIdCidade(); ?></td>
+                <td><?php echo $this->escape($cid->getTitulo()); ?></td>
+                <td><?php echo $this->escape($cid->getUf()); ?></td>
+                <td>
+                   <a href="javascript:void(0);" title="Apagar">Apagar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+     </tbody>
+</table>
+

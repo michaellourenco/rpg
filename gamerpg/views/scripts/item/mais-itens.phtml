@@ -1,0 +1,13 @@
+<!-- INICIO MAIS ESTABELECIMENTOS -->
+        <div class="outros_itens">
+        <h2>Mais Items</h2>
+        <?php if ( $this->listaItems) : ?>
+        		<?php $iMaisItems = 0; // inicia o contator para o foreach?>
+                <?php foreach ( $this->listaItems as $cid) : ?>
+                    <div class='item_outros_itens'>
+                      <a href="/item/conteudo/id/<?php echo $cid->getIdItem(); ?>" title="ver"> <?php echo $this->escape($cid->getTitulo()); ?></a>            </div>
+                 <?php  if (++$iMaisItems == 4){ break;} // verificando se o primeiro foreach executou 4 vezes. ?>      
+                <?php endforeach; ?>
+         <?php endif; ?>       
+        </div> 
+<!-- FIM MAIS ESTABELECIMENTOS -->

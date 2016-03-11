@@ -1,0 +1,33 @@
+<?php /* application/views/scripts/murals/listar.phtml */ ?>
+
+<h1>Usuarios</h1>
+
+<p>
+<a href="<?php echo $this->url(array(
+    'controller' => 'usuario',
+    'action'     => 'cadastrar')); ?>" title="Incluir nova mural">Incluir novo usuario</a>
+</p>
+
+<table cellspacing="1" cellpadding="1" border="1" width="500">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Acao</th>
+        </tr>
+     </thead>
+     <tbody>
+        <?php foreach ( $this->usuarios as $ent) : ?>
+            <tr>
+                <td><?php echo $ent->idUsuario; ?></td>            
+                <td><?php echo $this->escape($ent->nome); ?></td>
+                <td>
+                   <a href="javascript:void(0);" title="Apagar">Apagar</a><br/>
+                   <a href="/usuario/conteudo/id/<?php echo $ent->getIdUsuario(); ?>" title="Ver">Visualizar</a><br/>                   
+                   <a href="/usuario/editar/id/<?php echo $ent->getIdUsuario(); ?>" title="Editar">Editar</a><br/>
+           </td>
+            </tr>     
+        <?php endforeach; ?>
+     </tbody>
+</table>
+

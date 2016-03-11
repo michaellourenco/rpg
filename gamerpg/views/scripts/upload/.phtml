@@ -1,0 +1,37 @@
+<!-- INICIO DO FORMULÁRIO-->
+<form name="formulario" method="POST" action="../usuario/incluindo.php?filtro=cidade" enctype="multipart/form-data"> 
+<fieldset>
+<legend>Cadastrar Cidade</legend>
+<label>
+	Título:
+	
+	<input name="cidade_titulo" maxlength="200" size="50" value="" tabindex="5">
+	         
+</label>
+<label>
+Estado:
+
+<select name="cidade_estado_id" id="select5" tabindex="14">
+<?php
+$sql_tipo_evento = "SELECT * FROM estado 
+			ORDER BY estado_titulo asc";
+$resultado_tipo_evento =mysql_query($sql_tipo_evento)
+or die ("Não foi possível realizar a consulta ao banco de dados".mysql_error());
+while ($linha=mysql_fetch_array($resultado_tipo_evento)) {
+include('../list/estado.php');
+
+echo " 
+<option value=' $estado_id '> $estado_titulo </option>
+"; 
+}
+?>
+</select>            
+</label> 
+
+<input type="hidden" name="usuario_id" value="1">
+	  <label>
+          <input type="submit" name="submit" value="Cadastrar">  
+		  </label>
+		  </fieldset>
+</form>
+<!-- FIM DO FORMULÁRIO-->

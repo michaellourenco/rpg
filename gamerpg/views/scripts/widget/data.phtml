@@ -1,0 +1,107 @@
+<?php 
+/** 
+* Calcula o intervalo entre duas datas no formato ISO, o intervalo é dado 
+* no formato específicado em intevalor q pode ser 
+* y - ano 
+* m - meses 
+* d - dias 
+* h - horas 
+* n - minutos 
+* default ´se gundos 
+* 
+* @param string $data1
+* @param string $data2 
+* @param string $intervalo m, d, h, n,y 
+* @return int|string intervalo de horas 
+*/ 
+
+$data1 = $this->data1;
+$data2 = $this->data2;
+
+function dtDif($data1, $data2, $intervalo) { 
+
+switch ($intervalo) { 
+case 'y': 
+$Q = 86400*365; 
+break; //ano 
+case 'I': 
+$Q = 86530; 
+break; //ano 
+case 'm': 
+$Q = 2592000; 
+break; //mes 
+case 'd': 
+$Q = 86400; 
+break; //dia 
+case 'h': 
+$Q = 3600; 
+break; //hora 
+case 'n': 
+$Q = 60; 
+break; //minuto 
+default: 
+$Q = 1; 
+break; //segundo 
+} 
+
+return round((strtotime($data2) - strtotime($data1)) / $Q); 
+} 
+
+//----------------------------------------------------------------------------------------- 
+
+
+
+$dias = dtDif($data1, $data2, "d"); // calcula a quantidade de dias existentes entre a data inicial e a data final 
+$i=0; 
+$soma = 0; 
+while ($i != $dias){ // faz um loop com a quantidade de dias do período 
+//$data = dtSomar($dt1, $soma); // soma a data inicial mais o incremento 
+$data=$data+1; // incremento da data 
+$temp[] = '"'.$data.'"'.","; // armazena a data em um array 
+$i=$i+1; // incrementa contador 
+}
+
+$total1 = count($temp); // conta quantidade de elementos no array 
+//$result = array_unique($temp); // remove todos os itens duplicados do array 
+//$total = count($result);// conta a quantidade de elementos sema repetição no array 
+$resultado = $total1;// - $total; // que é a quantidade de dias duplicados
+
+
+
+function addDayIntoDate($date,$days) {
+     $thisyear = substr ( $date, 0, 4 );
+     $thismonth = substr ( $date, 6, 2 );
+     $thisday =  substr ( $date, 8, 2 );
+     $nextdate = mktime ( 0, 0, 0, $thismonth, $thisday + $days, $thisyear );
+     return strftime("%Y-%m-%d", $nextdate);
+}
+
+function subDayIntoDate($date,$days) {
+     $thisyear = substr ( $date, 0, 4 );
+     $thismonth = substr ( $date, 6, 2 );
+     $thisday =  substr ( $date, 8, 2 );
+     $nextdate = mktime ( 0, 0, 0, $thismonth, $thisday - $days, $thisyear );
+     return strftime("%Y-%m-%d", $nextdate);
+}
+
+
+//$date = date("Ymd");
+//echo $date."<br>";
+//$nextdate = addDayIntoDate($date,15);    // Adiciona 15 dias
+//echo $nextdate."<br>";
+//$backdate = subDayIntoDate($date,30);    // Subtrair 30 dias
+//echo $backdate."<br>";
+$i=array();
+for($iI=0;$iI <= $dias;$iI++){
+	$dataMais = addDayIntoDate($data1,$iI);
+	$i[]=$dataMais;
+}
+foreach($i as $nova){
+echo $nova."<br/>";
+}
+
+echo "<h1>$dias</h1>";
+echo "<h1>".$this->data1."</h1>";
+echo "<h1>$data2</h1>";
+
+?>

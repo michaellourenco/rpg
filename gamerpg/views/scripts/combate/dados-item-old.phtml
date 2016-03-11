@@ -1,0 +1,44 @@
+<!-- INICIO DADOS ITEM -->
+        <div>
+        <?=$this->render('/redes-sociais/facebook-like.phtml'); ?> 
+        </div>
+<div class="bloco-conteudo-item">
+    <div class="bloco-conteudo-item-esquerdo">
+    informações
+    </div>
+	<div class="bloco-conteudo-item-direito">
+	<table id="dados-item">
+        <tr class="item"><td>visualizações</td><td> 
+			<?php echo $this->contador->getContador(); ?>
+        </td></tr>
+		<?php if ( $this->items->getCidade()) : ?>   
+                 <tr class="item"><td>cidade</td><td>  <a href="/cidade/conteudo/id/<?php echo $this->items->getCidade()->getIdCidade(); ?>" title="ver"> <?php echo $this->items->getCidade()->getTitulo(); ?></a></td></tr>    
+        <?php endif;?>
+        <?php if ( $this->items->getCategoria()) : ?>   
+                 <tr class="item"><td>tipo</td><td>  <a href="/tipo-item/conteudo/id/<?php echo $this->items->getCategoria()->getIdCategoria(); ?>" title="ver"> <?php echo $this->items->getCategoria()->getTitulo(); ?></a></td></tr>    
+        <?php endif;?>
+        <?php if ( $this->items->getCon()) : ?>  
+                 <tr class="item"><td>con</td><td> <?php echo $this->items->getCon(); ?></td></tr>
+        <?php endif;?>
+        <?php if ( $this->items->getFr()) : ?>  
+                 <tr class="item"><td>fr</td><td> <?php echo $this->items->getFr(); ?></td></tr>
+        <?php endif;?>
+        <?php if ( $this->items->getDx()) : ?>  
+                 <tr class="item"><td>dx</td><td> <?php echo "<a href='http://".$this->items->getDx()."' target='_blank'>".$this->items->getDx()."</a>"; ?></td></tr>
+        <?php endif;?>
+		<?php if ($this->items->getListaGeneroMusical()): ?>
+             <tr class="item"> 
+                <td>generos musicais</td>
+                <td>
+                <?php foreach( $this->items->getListaGeneroMusical() as $eventos) : ?>
+              <a href="/genero-musical/conteudo/id/<?php echo $eventos->getGeneroMusical()->getIdGeneroMusical(); ?>" title="ver"> <?php echo $eventos->getGeneroMusical()->getTitulo(); ?></a>
+               <?php endforeach; ?>
+                </td>
+              </tr>
+        <?php endif; ?>
+
+
+     </table>  
+	</div>
+</div>
+<!-- FIM DADOS ITEM -->

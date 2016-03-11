@@ -1,0 +1,9 @@
+<?=$this->render('/index/bloco-rede-social.phtml'); ?>
+<div class="outros_itens">
+<h2>Usuarios</h2>
+        <?php foreach ( $this->listaUsuarios as $cid) : ?>
+        	<div class='item_outros_itens'>
+              <a href="/usuario/conteudo/id/<?php echo $cid->getIdUsuario(); ?>" title="ver"> <?php echo $this->escape($cid->getNome()); ?></a>            </div>
+        <?php endforeach; ?>
+	<div class='todos_outros_itens'><a href="/usuario/" title="ver"> veja mais</a>  </div>
+</div>

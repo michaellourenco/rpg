@@ -1,0 +1,19 @@
+<div id="item-index">
+	<div id="centro-esquerda">
+    
+    <p><?php echo count($this->itens); ?><p>
+    <p><?php echo count($this->itens)." * 50 = R$ ".count($this->itens) * 50 ." - 30% = R$ " .count($this->itens) * 0.30 * 50; ?><p>
+    <dl>
+	<?php foreach ( $this->itens as $item) : ?>
+    		<dt>
+                <a href="/item/conteudo/id/<?php echo $item->getIdItem(); ?>" title="ver"> <?php echo $item->getTitulo(); ?></a>           	
+			</dt>
+            <dd>
+             <?php echo $item->getFr(); ?>
+            </dd>
+    <?php endforeach; ?>
+    </dl>
+    
+ 
+	</div>
+</div>

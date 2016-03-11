@@ -1,0 +1,39 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">             
+            <!--INICO LISTA DE ESTABELECIMENTOS DO USUARIO -->
+            <div class="rel_item">
+            <?php if ($this->usuarios->getListaItems()): ?>
+                
+                <h3>Items</h3>
+                        <?php foreach ( $this->usuarios->getListaItems() as $relacao) : ?>
+                            <div class='item_outros_itens'>
+                              <a href="/item/conteudo/id/<?php echo $relacao->getIdItem(); ?>" title="ver"> <?php echo $this->escape($relacao->getTitulo()); ?></a>           
+                              <?php if (@$this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+ <a href="/usuario/deletar-rel-usuario-item/id/<?php echo $relacao->getIdItem(); ?>" title="tirar da lista vip"><img src="/imagens/icones/menos.png" class="icone-acao"/> </a>  
+         						<?php else: ?>     
+        						<?php endif; ?>
+                              
+                               </div>
+                        <?php endforeach; ?>
+                
+            <?php else: ?>
+                <h3>Items</h3>
+                <p>Voce nao segue items.</p>      
+            <?php endif; ?>
+            </div>
+            <!--FIM LISTA DE ESTABELECIMENTOS DO USUARIO -->              
+        </div>
+</div>
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>

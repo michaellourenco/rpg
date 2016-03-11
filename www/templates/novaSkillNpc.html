@@ -1,0 +1,28 @@
+<ion-view view-title="{{char.titulo}}">
+  <ion-content>
+		<h2>Nova SkillNpc</h2>
+		<form name="skillnpcForm">
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skillnpc.ordem" name="ordem" placeholder="ordem"/> 
+				</label>			
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skillnpc.titulo" name="titulo" placeholder="titulo"/> </label>
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skillnpc.descricao" name="descricao" placeholder="descricao"/> 
+				</label>
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skillnpc.valor" name="valor" placeholder="valor"/> 
+				</label>					
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skillnpc.dano" name="dano" placeholder="dano"/> 
+				</label>	
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skillnpc.recarga" name="recarga" placeholder="recarga"/> 
+				</label>	
+		</form>
+		    <button class="button button-balanced" ng-click="addLine(skillnpc)">Add a line</button>
+		<button class="button button-balanced" ng-click="adicionarSkillNpc(skillnpc)">salvar</button>
+  </ion-content>
+</ion-view>
+
+

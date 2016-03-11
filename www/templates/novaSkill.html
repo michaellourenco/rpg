@@ -1,0 +1,28 @@
+<ion-view view-title="{{char.titulo}}">
+  <ion-content>
+		<h2>Nova Skill</h2>
+		<form name="skillForm">
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skill.ordem" name="ordem" placeholder="ordem"/> 
+				</label>			
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skill.titulo" name="titulo" placeholder="titulo"/> </label>
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skill.descricao" name="descricao" placeholder="descricao"/> 
+				</label>
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skill.valor" name="valor" placeholder="valor"/> 
+				</label>					
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skill.dano" name="dano" placeholder="dano"/> 
+				</label>	
+				<label class="item item-input" >
+					<input type="text" type="text" ng-model="skill.recarga" name="recarga" placeholder="recarga"/> 
+				</label>	
+		</form>
+		    <button class="button button-balanced" ng-click="addLine(skill)">Add a line</button>
+		<button class="button button-balanced" ng-click="adicionarSkill(skill)">salvar</button>
+  </ion-content>
+</ion-view>
+
+

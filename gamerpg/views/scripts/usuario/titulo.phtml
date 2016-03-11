@@ -1,0 +1,67 @@
+
+<!-- INICIO TITULO -->
+        <div id="usuario-nome"> 
+		<?php echo $this->usuarios->getNome(); ?> 
+        </div> 
+                <!-- TORNAR VIP INICIO-->
+        <?php if ($this->vip): ?>
+            <div id="usuario-acoes-vip"> 
+            	<a href="#" title="tornar vip">deixar de seguir</a>  
+            </div> 
+        <?php else: ?>
+        <?php if ($this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+            <div id="usuario-acoes-vip">             
+        		<a href="#" title="ver">sua area</a>  
+            </div> 
+            <?php else: ?>
+            <div id="usuario-acoes-vip">             
+        		<a href="/usuario/inserir-usuario/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="tornar vip"><img src="/imagens/icones/tornar-vip.png" class="icone-acao" title="Tornar Vip" /></a>  
+            </div>
+             <?php endif; ?> 
+        <?php endif; ?>  
+        <!-- TORNAR VIP FIM-->
+          
+     <?php if ($this->usuarios->getImagens()): ?>
+            <?php foreach ( $this->usuarios->getImagens() as $cid) : ?>
+           
+                <div id="foto-usuario" >
+                    <img src="/img/<?php echo $cid->getCaminho(); ?>" />
+                </div>
+               <?php if ($this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+					<a href="/usuario/deletar-usuario-imagem/id/<?php echo $cid->getIdImagem(); ?>/idItem/<?php echo $this->usuarios->getIdUsuario(); ?>" title="Editar"><img src="/imagens/icones/edit.png" class="icone" title="sua foto "  />apagar foto</a>
+				<?php endif; ?>	
+        <?php endforeach; ?>
+                <?php else: ?>
+               <div id="foto-usuario" >
+               		<?php echo "<img src='/imagens/icones/user_thumb.gif' class='icone-acao' title='Você' />"; ?>
+               </div>
+               <?php if ($this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+					<a href="/usuario/cadastrar-imagem/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="Editar"><img src="/imagens/icones/edit.png" class="icone" title="sua foto "  />insira sua foto</a>
+				<?php endif; ?>	
+            <?php endif; ?>	
+        <!-- INICIO DA VERIFICAÇÃO DE USUARIO LOGADO. CASO AFIRMATIVO, EXIBE OS MENUS PARA EDICAO -->
+        <?php if ($this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+            <div class="usuario-editar-perfil">
+                <a href="/usuario/editar/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="Editar"><img src="/imagens/icones/edit.png" class="icone" title="Editar Perfil "  />editar perfil</a>
+           </div>
+          <!-- <div class="menu-conteudo-item">
+                <a href="/album/cadastrar" title="Album"><img src="/imagens/icones/paint_brush.png" class="icone" title=""  /></a>
+            </div> -->
+        <?php endif; ?>
+        <!-- FIM DA VERIFICAÇÃO DE USUARIO LOGADO -->             
+
+        <!-- INICIO DA VERIFICAÇÃO DE USUARIO LOGADO. CASO AFIRMATIVO, EXIBE OS MENUS PARA EDICAO -->
+        <?php if ($this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+            <div class="usuario-editar-perfil">
+                <a href="/usuario/editar-relacoes/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="Editar"><img src="/imagens/icones/edit.png" class="icone" title="Editar Perfil "  />editar relacoes</a>
+           </div>
+          <!-- <div class="menu-conteudo-item">
+                <a href="/album/cadastrar" title="Album"><img src="/imagens/icones/paint_brush.png" class="icone" title=""  /></a>
+            </div> -->
+        <?php endif; ?>
+        <!-- FIM DA VERIFICAÇÃO DE USUARIO LOGADO -->                    
+  
+
+
+    
+<!-- FIM TITULO -->

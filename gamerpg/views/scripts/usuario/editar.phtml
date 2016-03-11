@@ -1,0 +1,26 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+    <div id="centro-esquerda"> 
+        
+        <div id="bloco-usuario-esquerda">
+            <?=$this->render('/usuario/titulo.phtml'); ?>
+
+        </div>   
+        <div id="bloco-usuario-direita">
+            <div id="form-usuario">
+				<?php
+                if($this->form):
+                $this->form->setAction($this->url());
+                echo $this->form; 
+                endif;
+                ?>
+			</div>
+
+        </div>
+    </div>
+    <div id="centro-direita">       
+    	<?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+
+</div>

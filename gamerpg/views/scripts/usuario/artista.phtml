@@ -1,0 +1,39 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">            
+        <!--INICO LISTA DE ARTISTAS DO USUARIO -->
+        <div class="rel-item-vip">
+        <?php if ($this->usuarios->getListaArtistas()): ?>
+            
+            <h3>Idolos</h3>
+                    <?php foreach ( $this->usuarios->getListaArtistas() as $relacao) : ?>
+                        <div class='item-vip'>
+                          <a href="/artista/conteudo/id/<?php echo $relacao->getIdArtista(); ?>" title="ver"> <?php echo $this->escape($relacao->getTitulo()); ?></a>           
+                          <?php if (@$this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+ <a href="/usuario/deletar-rel-usuario-artista/id/<?php echo $relacao->getIdArtista(); ?>" title="tirar da lista vip"><img src="/imagens/icones/menos.png" class="icone-acao"/> </a>  
+         						<?php else: ?>     
+        						<?php endif; ?>
+                          
+                           </div>
+                    <?php endforeach; ?>
+            
+        <?php else: ?>
+        	<h3>Idolos</h3>
+            <p>Voce nao possui idolos.</p>      
+        <?php endif; ?>
+        </div>
+        <!--FIM LISTA DE ARTISTAS DO USUARIO -->            
+        </div>
+</div>
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>

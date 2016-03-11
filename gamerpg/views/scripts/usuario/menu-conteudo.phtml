@@ -1,0 +1,46 @@
+<!-- INICIO MENU DO CONTEUDO -->    
+<div id="menu-conteudo-usuario">
+ 	<div class="menu-conteudo-item"><a href="/usuario/conteudo/id/<?php echo $this->usuarios->getIdUsuario(); ?>">home</a>    
+    </div>   
+    <div class="menu-conteudo-item">  
+        <a href="/usuario/seguido/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">follow
+        <?php echo count($this->usuarios->getListaUsuarioDestino()); ?></a>
+    </div>   
+    <div class="menu-conteudo-item">      
+        <a href="/usuario/sigo/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">following  
+        <?php echo count($this->usuarios->getListaUsuarioOrigem());?></a>
+    </div>    
+    <div class="menu-conteudo-item">
+        <a href="/usuario/artista/id/<?php echo $this->usuarios->getIdUsuario(); ?>">idolos
+        <?php echo count( $this->usuarios->getListaArtistas()); ?></a>
+    </div>
+    <div class="menu-conteudo-item">
+        <a href="/usuario/agencia/id/<?php echo $this->usuarios->getIdUsuario(); ?>">agências
+        <?php echo count( $this->usuarios->getListaAgencias()); ?> </a>
+    </div>
+    <div class="menu-conteudo-item">
+        <a href="/usuario/cidade/id/<?php echo $this->usuarios->getIdUsuario(); ?>">cidades
+        <?php echo count( $this->usuarios->getListaCidades()); ?></a>
+    </div> 
+    <div class="menu-conteudo-item">
+        <a href="/usuario/item/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">items
+        <?php echo count($this->usuarios->getListaItems()); ?></a>
+    </div>
+    <div class="menu-conteudo-item">
+        <a href="/usuario/evento/id/<?php echo $this->usuarios->getIdUsuario(); ?>">eventos
+        <?php echo count ($this->usuarios->getListaEventos()); ?></a>
+    </div>
+    <div class="menu-conteudo-item">
+        <a href="/usuario/festival/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">festivais
+        <?php echo count($this->usuarios->getListaFestivais()); ?> </a>
+    </div>
+    <div class="menu-conteudo-item">
+        <a href="/usuario/comentario/id/<?php echo $this->usuarios->getIdUsuario(); ?>">opiniões     
+        <?php echo count( $this->usuarios->getListaComentarios()); ?></a>
+    </div>
+    <div class="menu-conteudo-item">
+        <a href="/usuario/autor/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">profisisonais
+        <?php echo count( $this->usuarios->getListaAutores()); ?>   </a>     
+    </div>    
+</div>
+    <!-- FIM MENU DO CONTEUDO -->

@@ -1,0 +1,95 @@
+<!-- INICIO BLOCO DE RELACIONADOS -->
+
+<ul>
+    <li>albuns <?php echo count( $this->usuarios->getListaAlbuns()); ?></li>
+    
+    </li>
+    <!--FIM LISTA DE ALBUNS DO USUARIO -->
+    
+    <!--INICO LISTA DE USUARIOS QUE SEGEM O USUARIO -->
+    <li>
+    
+    VIPs que me seguem
+    <?php echo count($this->usuarios->getListaUsuarioDestino()); ?>
+    
+    
+    </li>
+    <!--FIM LISTA DE USUARIOS QUE SEGUEM O USUARIO -->     
+    
+    <!--INICO LISTA DE USUARIOS DO USUARIO -->
+    <li>    
+    VIPs que sigo
+    <?php echo count($this->usuarios->getListaUsuarioOrigem());?>
+    </li>
+    <!--FIM LISTA DE USUARIOS DO USUARIO -->  
+    
+    <!--INICO LISTA DE ARTISTAS DO USUARIO -->
+    <li>
+    Idolos
+    <?php echo count( $this->usuarios->getListaArtistas()); ?>
+    </li>
+    <!--FIM LISTA DE ARTISTAS DO USUARIO -->     
+    
+    <!--INICO LISTA DE AGENCIAS DO USUARIO -->
+    <li>
+    
+    Agencias
+    <?php echo count( $this->usuarios->getListaAgencias()); ?>
+    </li>
+    <!--FIM LISTA DE AGENCIAS DO USUARIO --> 
+    
+    <!--INICO LISTA DE CIDADES DO USUARIO -->
+    <li>
+    
+    Cidades
+    <?php echo count( $this->usuarios->getListaCidades()); ?>
+    
+    </li>
+    <!--FIM LISTA DE CIDADES DO USUARIO -->  
+    
+    <!--INICO LISTA DE ESTABELECIMENTOS DO USUARIO -->
+    <li>            
+    Items
+    <?php echo count($this->usuarios->getListaItems()); ?>
+    
+    </li>
+    <!--FIM LISTA DE ESTABELECIMENTOS DO USUARIO -->                           
+    
+    <!--INICO LISTA DE EVENTOS DO USUARIO -->
+    <li>
+    
+    Eventos
+    <?php echo count ($this->usuarios->getListaEventos()); ?>
+    </li>
+    <!--FIM LISTA DE EVENTOS DO USUARIO -->     
+    
+    <!--INICO LISTA DE FESTIVAIS DO USUARIO -->
+    <li>
+    Festivais
+    <?php echo count($this->usuarios->getListaFestivais()); ?>
+    </li>
+    <!--FIM LISTA DE FESTIVAIS DO USUARIO -->  
+    
+    <!--INICO LISTA DE GENEROS MUSICAIS DO USUARIO -->
+    <li>
+    
+    Generos Musicais
+    <?php echo count($this->usuarios->getListaGenerosMusicais()); ?>
+    
+    </li>
+    <!--FIM LISTA DE GENEROS MUSICAIS DO USUARIO -->             
+    
+    
+    
+    
+    
+    <!--INICO LISTA DE COMENTARIOS DO USUARIO -->
+    <li>
+    
+    Comentarios
+    <?php echo count( $this->usuarios->getListaComentarios()); ?>
+    
+    </li>
+</ul>
+
+<!-- FIM BLOCO DE RELACIONADOS -->

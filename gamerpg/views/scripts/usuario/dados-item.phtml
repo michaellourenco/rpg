@@ -1,0 +1,27 @@
+<!--INICO DADOS DO USUARIO -->
+
+
+<table id="dados-item-usuario">          
+	<?php if($this->usuarios->getDataNascimento()): ?>
+    <tr class="item"><td class="esquerda">niver</td><td class="direita"><?php echo $this->Data($this->usuarios->getDataNascimento())->pt_br_dia."/".$this->Data($this->usuarios->getDataNascimento())->pt_br_mes ; ?></td></tr>
+    <?php endif; ?>
+	<?php if($this->usuarios->getGenero()): ?>
+     <tr class="item"><td class="esquerda">genero</td><td class="direita"><?php echo $this->usuarios->getGenero(); ?></td></tr>
+    <?php endif; ?>
+	<?php if($this->usuarios->getCidade()): ?>
+     <tr class="item"><td class="esquerda">cidade</td><td class="direita"><?php echo $this->usuarios->getCidade(); ?></td></tr>
+    <?php endif; ?>
+	<?php if($this->usuarios->getCon()): ?>
+     <tr class="item"><td class="esquerda">con</td><td class="direita"><?php echo $this->usuarios->getCon(); ?></td></tr>
+    <?php endif; ?>
+	<?php if($this->usuarios->getFr()): ?>     
+     <tr class="item"><td class="esquerda">fr</td><td class="direita"><?php echo $this->usuarios->getFr(); ?></td></tr>
+    <?php endif; ?>
+	<?php if($this->usuarios->getDx()): ?>
+     <tr class="item"><td class="esquerda">dx</td><td class="direita"><?php echo "<a href='http://".$this->usuarios->getDx()."' target='_blank'>".$this->usuarios->getDx()."</a>"; ?></td></tr> 
+    <?php endif; ?>
+	<?php if($this->usuarios->getMsn()): ?>       
+     <tr class="item"><td class="esquerda">msn </td><td class="direita"><?php echo $this->usuarios->getMsn(); ?></td></tr>	
+    <?php endif; ?>
+</table>               
+<!--FIM DADOS DO USUARIO --> 

@@ -1,0 +1,32 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">               
+            <!--INICO LISTA DE COMENTARIOS DO USUARIO -->
+            <div class="rel_item">
+            <?php if ($this->usuarios->getListaComentarios()): ?>
+                
+                <h3>Comentarios</h3>
+                        <?php foreach ( $this->usuarios->getListaComentarios() as $relacao) : ?>
+                             <p>  <?php echo $relacao->getDescricao(); ?> <a href="/comentario/conteudo/id/<?php echo $relacao->getIdComentario(); ?>" title="ver">apagar</a></p>        
+                        <?php endforeach; ?>
+            <?php else: ?>
+                <h3>Comentarios</h3>
+                <p>Voce nao possui nenhum comentario ainda.</p>      
+            <?php endif; ?>
+            </div>
+            <!--FIM LISTA DE COMENTARIOS DO USUARIO --> 
+            </div>             
+        </div>
+
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>

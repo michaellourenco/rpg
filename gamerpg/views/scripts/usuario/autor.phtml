@@ -1,0 +1,47 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">            
+        <!--INICO LISTA DE ARTISTAS DO USUARIO -->
+        <div class="rel_item">
+        <?php if ($this->usuarios->getListaAutores()): ?>
+            
+            <h2>Profissionais VNB</h2>
+<div id="bloco-autores">
+    <?php foreach ( $this->usuarios->listaAutores as $tipo) : ?>
+            <div class='item-bloco-autores'>
+                    <?php foreach ( $tipo->getImagens() as $fotoAutor) : ?>
+                        <div id="item-foto-bloco-autor" >
+                        	<a href="/autor/conteudo/id/<?php echo $tipo->getIdAutor(); ?>">
+                            <img src="<?php echo $this->baseUrl('img/'.($fotoAutor->getCaminho())); ?>" width="77"/>
+                            </a>
+                        </div>
+						<?php if (@$this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>
+<a href="/usuario/deletar-rel-usuario-Autor/id/<?php echo $tipo->getIdAutor(); ?>" title="tirar da lista vip"><img src="/imagens/icones/menos.png" class="icone-acao"/> </a>  
+                        <?php else: ?>     
+                        <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    <?php endforeach; ?>             
+</div>
+
+            
+        <?php else: ?>
+        	<h3>Profissionais VNB</h3>
+            <p>Voce nao possui autores na sua lista VIP.</p>      
+        <?php endif; ?>
+        </div>
+        <!--FIM LISTA DE ARTISTAS DO USUARIO -->            
+        </div>
+</div>
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>

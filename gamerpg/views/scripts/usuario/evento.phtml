@@ -1,0 +1,39 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">           
+            <!--INICO LISTA DE EVENTOS DO USUARIO -->
+            <div class="rel-item-vip">
+            <?php if ($this->usuarios->getListaEventos()): ?>
+                
+                <h3><?php echo count($this->usuarios->getListaEventos()); ?> Eventos na Lista Vip</h3>
+                        <?php foreach ( $this->usuarios->getListaEventos() as $relacao) : ?>
+                            <div class='item-vip'>
+                              <a href="/evento/conteudo/id/<?php echo $relacao->getIdEvento(); ?>" title="ver"> <?php echo $this->escape($relacao->getTitulo()); ?></a>            
+                             <?php if (@$this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>         
+ <a href="/usuario/deletar-rel-usuario-evento/id/<?php echo $relacao->getIdEvento(); ?>" title="tirar da lista vip"><img src="/imagens/icones/menos.png" class="icone-acao"/> </a>  
+         						<?php else: ?>     
+        						<?php endif; ?>
+                              
+                              </div>
+                        <?php endforeach; ?>
+                
+            <?php else: ?>
+                <h3>Eventos</h3>
+                <p>Voce nao segue eventos.</p>      
+            <?php endif; ?>
+            </div>
+            <!--FIM LISTA DE EVENTOS DO USUARIO -->             
+        </div>
+</div>
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>

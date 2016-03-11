@@ -1,0 +1,39 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">               
+            <!--INICO LISTA DE AGENCIAS DO USUARIO -->
+            <div class="rel-item-vip">
+            <?php if ($this->usuarios->getListaFestivais()): ?>
+                
+                <h3>Festivais</h3>
+                        <?php foreach ( $this->usuarios->getListaFestivais() as $relacao) : ?>
+                            <div class='item-vip'>
+                              <a href="/festival/conteudo/id/<?php echo $relacao->getIdFestival(); ?>" title="ver"> <?php echo $this->escape($relacao->getTitulo()); ?></a>  
+                            	<?php if (@$this->usuarioAuth->idUsuario == $this->usuarios->getIdUsuario()): ?>         
+ <a href="/usuario/deletar-rel-usuario-festival/id/<?php echo $relacao->getIdFestival(); ?>" title="tirar da lista vip"><img src="/imagens/icones/menos.png" class="icone-acao"/> </a>  
+         						<?php else: ?>     
+        						<?php endif; ?>   
+                                    
+                               </div>
+                        <?php endforeach; ?>
+                
+            <?php else: ?>
+                <h3>Festivais</h3>
+                <p>Voce nao segue festivals.</p>     
+            <?php endif; ?>
+            </div>
+            <!--FIM LISTA DE AGENCIAS DO USUARIO -->             
+        </div>
+</div>
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>

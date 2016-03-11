@@ -1,0 +1,61 @@
+<ion-view view-title="{{combate.titulo}}">
+  <ion-content>
+  	<h2>Novo Char</h2>
+		<form class="list" name="charForm">
+		
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Ordem</span>
+			<input type="text" ng-model="char.ordem" name="ordem" placeholder="ordem"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label"> Ninvel</span>
+			<input type="text" ng-model="char.nivel" name="nivel" placeholder="nivel"/>
+		</label>		
+		<label class="item item-input item-floating-label">
+			<span class="input-label"> Experiencia</span>
+			<input type="text" ng-model="char.experiencia" name="experiencia" placeholder="experiencia"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Experiencia Atual</span>
+			<input type="text" ng-model="char.experienciaatual" name="experienciaatual" placeholder="experienciaatual"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Titulo</span>		
+			<input type="text" ng-model="char.titulo" name="titulo" placeholder="titulo"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Decrição</span>		
+			<input type="text" ng-model="char.descricao" name="descricao" placeholder="descricao"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Vida</span>		
+			<input type="text" ng-model="char.hp" name="hp" placeholder="hp"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Vida Atual</span>		
+			<input type="text" ng-model="char.hpatual" name="hpatual" placeholder="hpatual"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Dano de ataque</span>		
+			<input type="text" ng-model="char.fa" name="fa" placeholder="fa"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Mana</span>		
+			<input type="text" ng-model="char.mana" name="mana" placeholder="mana"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Mana Atual</span>		
+			<input type="text" ng-model="char.manaatual" name="manaatual" placeholder="manaatual"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Armadura</span>		
+			<input type="text" ng-model="char.fd" name="fd" placeholder="fd"/>
+		</label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label">Iniciativa</span>		
+			<input type="text" ng-model="char.iniciativa" name="iniciativa" placeholder="iniciativa"/>
+		</label>
+		</form>
+		<button class="button button-balanced" ng-click="novoChar(char)">salvar</button>
+  </ion-content>
+</ion-view>

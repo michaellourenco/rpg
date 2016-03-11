@@ -1,0 +1,7 @@
+<!-- INICIO PUBLICIDADE ULTRA BANNER -->
+
+<?php foreach ( $this->categorias as $item) : ?>
+	<div class="categoria-index">
+			<a href="/categoria/conteudo/id/<?php echo $item->getIdCategoria(); ?>" title="ver"> <?php echo $item->getTitulo(); ?></a>  <br />          	
+	</div>
+<?php endforeach; ?>

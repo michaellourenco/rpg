@@ -1,0 +1,18 @@
+<ion-view view-title="Combates">
+  <ion-content>
+
+  <a class="button button-positive" href="#/app/novocombate"><i class="icon ion-plus"></i> + combate</a>
+	<button class="button button-light" ng-click="atualizarCombates()">atualizar combates</button>	
+    <ion-list>
+      <ion-item ng-repeat="combate in combates" class="item card-item" href="#/app/combate/{{combate.namespace}}">
+	      <div class="card stable-bg ink ink-dark">
+	      		<div class="item item-avatar item-text-wrap">
+	        	{{combate.titulo}}<br />
+	        	{{combate.cidade}}
+	        	</div>
+	       </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

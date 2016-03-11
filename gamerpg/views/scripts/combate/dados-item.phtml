@@ -1,0 +1,177 @@
+<!-- INICIO DADOS ITEM -->
+        <div>
+        <?=$this->render('/redes-sociais/facebook-like.phtml'); ?> 
+        </div>
+<div class="bloco-conteudo-item">
+<ul id="item">
+    <li><a href="#" class="menuconteudo">info</a>
+    	<ul class="subitem">
+     		<li>	
+
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Localização:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+					 <?php if ($this->items->getInt()): ?>   
+                        <?php echo $this->items->getInt(); ?>
+                     <?php endif; ?> 
+					 <?php if ($this->items->getCidade()): ?>   
+                       <br/> <a href="/cidade/conteudo/id/<?php echo $this->items->getCidade()->getIdCidade(); ?>" title="ver"> <?php echo $this->items->getCidade()->getTitulo(); ?></a> <? echo " - ".$this->items->getCidade()->getFkSigla(); ?>
+                     <?php endif; ?> 
+                    </div>
+                 </div>
+                 <?php if ( $this->items->getCategoria()) : ?>
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Tipo:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <a href="/tipo-item/conteudo/id/<?php echo $this->items->getCategoria()->getIdCategoria(); ?>" title="ver"> <?php echo $this->items->getCategoria()->getTitulo(); ?></a>   
+                    </div>
+                 </div>
+                 <?php endif;?>
+                <?php if ( $this->items->getFa()) : ?>  
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Horário:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getFa(); ?>
+                    </div>
+                 </div>
+                <?php endif;?>
+                <?php if ( $this->items->getFd()) : ?>  
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Formas de Fd:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getFd(); ?>
+                    </div>
+                 </div>
+                <?php endif;?>
+                <?php if ( $this->items->getPreco()) : ?>  
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Preço:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getPreco(); ?>
+                    </div>
+                 </div>
+                <?php endif;?>
+                <?php if ( $this->items->getCapacidade()) : ?>  
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Capacidade:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getCapacidade(); ?>
+                    </div>
+                 </div>
+                <?php endif;?>
+				<div class="subitem-item">
+                <?php if ( $this->items->getCon()) : ?>  
+                
+                    <div class="subitem-item-esquerda">
+                    <strong>E-mail:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                      <?php echo $this->items->getCon(); ?>
+                    </div>
+                    <br />
+                 
+                <?php endif;?>
+                <?php if ( $this->items->getFr()) : ?>  
+                
+                    <div class="subitem-item-esquerda">
+                    <strong>Fr:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getFr(); ?>
+                    </div>
+                	<br />
+                <?php endif;?>
+                <?php if ( $this->items->getDx()) : ?>  
+                
+                    <div class="subitem-item-esquerda">
+                    <strong>Dx Oficial:</strong>
+                    </div>
+                    <div class="subitem-item-direita">                     
+                     <?php echo "<a href='http://".$this->items->getDx()."' target='_blank'>".$this->items->getDx()."</a>"; ?> 
+                    </div>
+                 
+                <?php endif;?>
+                </div>
+                <?php if ($this->items->getListaGeneroMusical()): ?>
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Gênero:</strong>
+                    </div>
+                    <div class="subitem-item-direita">               
+                    <?php foreach( $this->items->getListaGeneroMusical() as $eventos) : ?>
+                  <a href="/genero-musical/conteudo/id/<?php echo $eventos->getGeneroMusical()->getIdGeneroMusical(); ?>" title="ver"> <?php echo $eventos->getGeneroMusical()->getTitulo(); ?></a>
+                   <?php endforeach; ?>
+                    </div>
+                 </div>
+                <?php endif; ?>
+                  <?php if ( $this->items->getEnergia()) : ?>  
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Energia:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getEnergia(); ?>
+                    </div>
+                 </div>
+                <?php endif;?>              
+                <?php if ( $this->items->getMana()) : ?>  
+                <div class="subitem-item">
+                    <div class="subitem-item-esquerda">
+                    <strong>Diferenciais:</strong>
+                    </div>
+                    <div class="subitem-item-direita">
+                     <?php echo $this->items->getMana(); ?>
+                    </div>
+                 </div>
+                <?php endif;?>                
+                
+     		</li>   
+        </ul>
+    </li>
+    <?php if($this->items->getDescricao()): ?>
+     <li><a href="#" class="menuconteudo">sobre</a>  
+		<ul class="subitem"> 
+        	<li>
+            	<div class="subitem-descricao">
+		    		<?php echo $this->items->getDescricao(); ?>
+				</div>
+        	</li>
+        </ul>
+    </li>
+    <?php endif; ?>
+    <?php if ($this->items->getListaEventos()): ?> 
+     <li><a href="#" class="menuconteudo">eventos</a>  
+		<ul class="subitem"> 
+        	<li>
+                 
+					<?php foreach ( $this->items->getListaEventos() as $eventos) : ?>
+                	<div class="item-evento">
+                    	<a href="/evento/conteudo/id/<?php echo $eventos->getIdEvento(); ?>" title="ver"> 
+                        <?php echo $this->Data($eventos->getDataEvento())->pt_br_mes."-".$this->Data($eventos->getDataEvento())->pt_br_dia."-".$this->Data($eventos->getDataEvento())->pt_br_ano; ?>
+                                              <?php echo $this->escape($eventos->getTitulo()); ?></a>
+                    </div>
+                   	
+                    <?php endforeach; ?>
+                    
+                
+                <a href="/item/evento/id/<?php echo $this->items->getIdItem(); ?>" class="item-mais">ver todos</a>
+        	</li>
+        </ul>
+    </li>
+    <?php endif; ?>
+
+</ul>
+</div>
+<!-- FIM DADOS ITEM -->

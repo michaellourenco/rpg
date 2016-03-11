@@ -1,0 +1,50 @@
+<!-- INICIO BLOCO DE RELACIONADOS -->
+	<?php if($this->usuarios->getFrase()): ?>
+          <div class="frase">" <?php echo $this->usuarios->getFrase(); ?> "</div>
+    <?php endif; ?>
+	<?php if($this->usuarios->getDescricao()): ?>
+          <div class="quem-sou"><?php echo $this->usuarios->getDescricao(); ?></div>
+    <?php endif; ?>
+    
+<table id="relacoes-usuario">
+    <tr>  
+        <td><a href="/usuario/seguido/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">follow</a></td>  
+        <td><?php echo count($this->usuarios->getListaUsuarioDestino()); ?></td>
+    </tr>    
+        <td><a href="/usuario/sigo/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">following</a></td>    
+        <td><?php echo count($this->usuarios->getListaUsuarioOrigem());?></td>
+    <tr>
+        <td><a href="/usuario/artista/id/<?php echo $this->usuarios->getIdUsuario(); ?>">idolos</a></td>
+        <td><?php echo count( $this->usuarios->getListaArtistas()); ?></td>
+    </tr>
+    <tr>
+        <td><a href="/usuario/agencia/id/<?php echo $this->usuarios->getIdUsuario(); ?>">agências</a></td>
+        <td><?php echo count( $this->usuarios->getListaAgencias()); ?> </td>
+    </tr>
+    <tr>
+        <td><a href="/usuario/cidade/id/<?php echo $this->usuarios->getIdUsuario(); ?>">cidades</a></td>
+        <td><?php echo count( $this->usuarios->getListaCidades()); ?></td>
+    </tr> 
+    <tr>
+        <td><a href="/usuario/item/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">items</a></td>
+        <td><?php echo count($this->usuarios->getListaItems()); ?></td>
+    </tr>
+    <tr>
+        <td><a href="/usuario/evento/id/<?php echo $this->usuarios->getIdUsuario(); ?>">eventos</a></td>
+        <td><?php echo count ($this->usuarios->getListaEventos()); ?></td>
+    </tr>
+    <tr>
+        <td><a href="/usuario/festival/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">festivais</a></td>
+        <td><?php echo count($this->usuarios->getListaFestivais()); ?></td> 
+    </tr>
+    <tr>
+        <td><a href="/usuario/comentario/id/<?php echo $this->usuarios->getIdUsuario(); ?>">opiniões</a></td>       
+        <td><?php echo count( $this->usuarios->getListaComentarios()); ?></td>
+    </tr>
+    <tr>
+        <td><a href="/usuario/autor/id/<?php echo $this->usuarios->getIdUsuario(); ?>" title="ver">profisisonais</a></td>
+        <td><?php echo count( $this->usuarios->getListaAutores()); ?></td>        
+    </tr>    
+</table>
+
+<!-- FIM BLOCO DE RELACIONADOS -->

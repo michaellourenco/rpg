@@ -1,0 +1,36 @@
+<!--INICO CONTEUDO DO USUARIO -->
+<div id="usuario">
+           <?=$this->render('/usuario/menu-conteudo.phtml'); ?>
+        <div id="centro-esquerda">
+   			                          
+            <div id="bloco-usuario-esquerda">
+            	<?=$this->render('/usuario/titulo.phtml'); ?>
+            	<?=$this->render('/usuario/dados-item.phtml'); ?> 
+            </div>  
+            <div id="bloco-usuario-direita">
+                
+            <!--INICO LISTA DE AGENCIAS DO USUARIO -->
+            <div class="rel-item-vip">
+            <?php if ($this->usuarios->getListaUsuarioDestino()): ?>
+                <h3>Usuarios que me seguem</h3>
+                        <?php foreach ( $this->usuarios->getListaUsuarioDestino() as $relacao) : ?>
+                            <div class='item-vip'>
+                              <a href="/usuario/conteudo/id/<?php echo $relacao->getIdUsuario(); ?>" title="ver"> <?php echo $this->escape($relacao->getNome()); ?></a>  
+
+                                    
+                               </div>
+                        <?php endforeach; ?>
+               
+            <?php else: ?>
+                <h3>Usuarios</h3>
+                <p>Voce nao segue usuarios.</p>     
+            <?php endif; ?>
+            </div>
+            <!--FIM LISTA DE AGENCIAS DO USUARIO -->             
+        </div>
+</div>
+         
+    <div id="centro-direita">       
+        <?=$this->render('/usuario/mais-usuarios.phtml'); ?>    
+    </div>
+</div>
