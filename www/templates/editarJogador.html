@@ -1,0 +1,68 @@
+<ion-view view-title="Jogador">
+  <ion-content>
+		{{jogador}}
+			<form class="list" name="jogadorEdit">
+
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Ordem</span>
+			 <input type="text" ng-model="jogador.ordem" name="ordem" placeholder="ordem"/>			
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Novo Campo</span>
+			 <input type="text" ng-model="jogador.novo" name="novo" placeholder="novo"/>			
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Título</span>
+			 <input type="text" ng-model="jogador.titulo" name="titulo" placeholder="titulo" ng-required="true"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Namespace</span>
+			 <input type="text" ng-model="jogador.namespace" name="namespace" placeholder="namespace" disabled/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Descrição</span>
+			 <input type="text" ng-model="jogador.descricao" name="descricao" placeholder="descricao"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Chamada</span>
+			 <input type="text" ng-model="jogador.chamada" name="chamada" placeholder="chamada"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Diferencial</span>
+			 <input type="text" ng-model="jogador.diferencial" name="diferencial" placeholder="diferencial"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Cidade</span>
+			 <input type="text" ng-model="jogador.cidade" name="cidade" placeholder="cidade" disabled/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Logradouro</span>
+			 <input type="text" ng-model="jogador.logradouro" name="site" placeholder="logradouro"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Horário</span>
+			 <input type="text" ng-model="jogador.horario" name="horario" placeholder="horario"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">CEP</span>
+			 <input type="text" ng-model="jogador.cep" name="site" placeholder="cep"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Infoline</span>
+			 <input type="text" ng-model="jogador.infoline" name="infoline" placeholder="infoline"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Site</span>
+			 <input type="text" ng-model="jogador.site" name="site" placeholder="site"/>
+			</label>
+			<label class="item item-input item-floating-label">
+    <span class="input-label">Formas de pagamento</span>
+			 <input type="text" ng-model="jogador.pagamento" name="pagamento" placeholder="formas de pagamento"/>
+			</label>
+			<button class="button button-balanced" ng-click="editarJogador(jogador)">salvar</button>
+		</form>
+			
+  </ion-content>
+</ion-view>
+
+

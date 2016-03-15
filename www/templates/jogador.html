@@ -1,21 +1,21 @@
 
-<ion-view view-title="Regiao: {{combate.titulo}}">
+<ion-view view-title="Regiao: {{jogador.titulo}}">
 
   <ion-content>
 
 	<p>
-		<a class="button button-positive" href="#/app/novochar/{{combate.namespace}}">
+		<a class="button button-positive" href="#/app/novochar/{{jogador.namespace}}">
 			<i class="icon ion-plus"></i>Char
 		</a>
-		<a class="button button-positive" href="#/app/novonpc/{{combate.namespace}}">
+		<a class="button button-positive" href="#/app/novonpc/{{jogador.namespace}}">
 			<i class="icon ion-plus"></i>Npc
 		</a>
-		<a class="button button-positive" href="#/app/novocard/{{combate.namespace}}">
+		<a class="button button-positive" href="#/app/novocard/{{jogador.namespace}}">
 			<i class="icon ion-plus"></i>Card
 		</a>
 	</p>
 	<p>
-		<a class="button button-positive" href="#/app/editarcombate/{{combate.namespace}}">
+		<a class="button button-positive" href="#/app/editarjogador/{{jogador.namespace}}">
 		<i class="icon ion-edit"></i>alterar info
 		</a>
 	</p>
@@ -67,29 +67,29 @@
  
         </div>	
         
-        <img ng-src="uploads/{{combate.logo}}" alt="logo" height="150"/>
+        <img ng-src="uploads/{{jogador.logo}}" alt="logo" height="150"/>
 
 		<div class="row">
 		<h2>Chars</h2>
 			<div class="col col-50">
 				<ion-list>
-					<ion-item ng-class="{'selecionado negrito': combate.selecionado}" ng-repeat="(indiceCat, cat) in combate.chars" class="item-button-right">
+					<ion-item ng-class="{'selecionado negrito': jogador.selecionado}" ng-repeat="(indiceCat, cat) in jogador.chars" class="item-button-right">
 						<div ng-if="cat.imagem">
 							<img ng-src="uploads/{{cat.imagem}}" class="avatar" alt="imagem"/>
-							{{indiceCat = combate.chars.indexOf(cat)}} -{{cat.titulo}} 
+							{{indiceCat = jogador.chars.indexOf(cat)}} -{{cat.titulo}} 
 						</div>
 						<div ng-if="!cat.imagem">
-							{{indiceCat = combate.chars.indexOf(cat)}} -{{cat.titulo}} 
+							{{indiceCat = jogador.chars.indexOf(cat)}} -{{cat.titulo}} 
 						</div>
 
 						<div class="buttons">
-							<a class="button button-light" href="#/app/editarchar/{{combate.namespace}}/{{indiceCat}}">
+							<a class="button button-light" href="#/app/editarchar/{{jogador.namespace}}/{{indiceCat}}">
 								<i class="icon ion-edit"></i>
 							</a>	
 							<button class="button button-light" ng-click="apagarChar(indiceCat)">
 								<i class="icon ion-trash-b"></i>
 							</button>	
-							<a class="button button-light" href="#/app/novaskill/{{combate.namespace}}/{{indiceCat}}">
+							<a class="button button-light" href="#/app/novaskill/{{jogador.namespace}}/{{indiceCat}}">
 								<i class="icon ion-plus"></i> produto
 							</a>			
 						</div>
@@ -103,13 +103,13 @@
 		        							<strong>{{item.ordem}}</strong> - {{item.titulo}} - {{ item.valor}}
 									    </div>
 									    <div ng-if="!item.imagem">
-									        <a href="#/app/editarskill/{{combate.namespace}}/{{indiceCat}}/{{$index}}" class="avatar">
+									        <a href="#/app/editarskill/{{jogador.namespace}}/{{indiceCat}}/{{$index}}" class="avatar">
 									        	<i class="icon ion-image"></i>
 									        </a>   
 									        <strong>{{item.ordem}}</strong> - {{item.titulo}} - {{ item.valor}}   
 									    </div>								
 				                    	<div class="card-footer text-right">
-				                        	<a class="button button-light" href="#/app/editarskill/{{combate.namespace}}/{{indiceCat}}/{{$index}}"><i class="icon ion-edit"></i></a>
+				                        	<a class="button button-light" href="#/app/editarskill/{{jogador.namespace}}/{{indiceCat}}/{{$index}}"><i class="icon ion-edit"></i></a>
 				                        	<button class="button button-light" ng-click="apagarItem($index,indiceCat)"><i class="icon ion-trash-b"></i></button>
 				                        	<div class="pull-left">
 				                        	{{item.descricao}}
@@ -126,23 +126,23 @@
 			<div class="col col-50">
 			<h2>Npcs</h2>
 				<ion-list>
-					<ion-item ng-class="{'selecionado negrito': combate.selecionado}" ng-repeat="(indiceNpc, npc) in combate.npcs" class="item-button-right">
+					<ion-item ng-class="{'selecionado negrito': jogador.selecionado}" ng-repeat="(indiceNpc, npc) in jogador.npcs" class="item-button-right">
 						<div ng-if="npc.imagem">
 							<img ng-src="uploads/{{npc.imagem}}" class="avatar" alt="imagem"/>
-							{{indiceNpc = combate.npcs.indexOf(npc)}} -{{npc.titulo}} 
+							{{indiceNpc = jogador.npcs.indexOf(npc)}} -{{npc.titulo}} 
 						</div>
 						<div ng-if="!npc.imagem">
-							{{indiceNpc = combate.npcs.indexOf(npc)}} -{{npc.titulo}} 
+							{{indiceNpc = jogador.npcs.indexOf(npc)}} -{{npc.titulo}} 
 						</div>
 
 						<div class="buttons">
-							<a class="button button-light" href="#/app/editarnpc/{{combate.namespace}}/{{indiceNpc}}">
+							<a class="button button-light" href="#/app/editarnpc/{{jogador.namespace}}/{{indiceNpc}}">
 								<i class="icon ion-edit"></i>
 							</a>	
 							<button class="button button-light" ng-click="apagarChar(indiceNpc)">
 								<i class="icon ion-trash-b"></i>
 							</button>	
-							<a class="button button-light" href="#/app/novaskillinimigo/{{combate.namespace}}/{{indiceNpc}}">
+							<a class="button button-light" href="#/app/novaskillinimigo/{{jogador.namespace}}/{{indiceNpc}}">
 								<i class="icon ion-plus"></i> produto
 							</a>			
 						</div>
@@ -156,13 +156,13 @@
 		        							<strong>{{item.ordem}}</strong> - {{item.titulo}} - {{ item.valor}}
 									    </div>
 									    <div ng-if="!item.imagem">
-									        <a href="#/app/editarskillinimigo/{{combate.namespace}}/{{indiceNpc}}/{{$index}}" class="avatar">
+									        <a href="#/app/editarskillinimigo/{{jogador.namespace}}/{{indiceNpc}}/{{$index}}" class="avatar">
 									        	<i class="icon ion-image"></i>
 									        </a>   
 									        <strong>{{item.ordem}}</strong> - {{item.titulo}} - {{ item.valor}}   
 									    </div>								
 				                    	<div class="card-footer text-right">
-				                        	<a class="button button-light" href="#/app/editarskillinimigo/{{combate.namespace}}/{{indiceNpc}}/{{$index}}"><i class="icon ion-edit"></i></a>
+				                        	<a class="button button-light" href="#/app/editarskillinimigo/{{jogador.namespace}}/{{indiceNpc}}/{{$index}}"><i class="icon ion-edit"></i></a>
 				                        	<button class="button button-light" ng-click="apagarItem($index,indiceNpc)"><i class="icon ion-trash-b"></i></button>
 				                        	<div class="pull-left">
 				                        	{{item.descricao}}
@@ -180,24 +180,24 @@
 			<div class="col col-50">
 			<h2>Cards</h2>
 				<ion-list>
-					<ion-item ng-class="{'selecionado negrito': combate.selecionado}" ng-repeat="(indiceCard, card) in combate.cards" class="item-button-right">
+					<ion-item ng-class="{'selecionado negrito': jogador.selecionado}" ng-repeat="(indiceCard, card) in jogador.cards" class="item-button-right">
 						
 						<div ng-if="card.imagem">
 							<img ng-src="uploads/{{card.imagem}}" class="avatar" alt="imagem"/>
-							{{indiceCard = combate.cards.indexOf(card)}} -{{card.titulo}} 
+							{{indiceCard = jogador.cards.indexOf(card)}} -{{card.titulo}} 
 						</div>
 						<div ng-if="!card.imagem">
-							{{indiceCard = combate.cards.indexOf(card)}} -{{card.titulo}} 
+							{{indiceCard = jogador.cards.indexOf(card)}} -{{card.titulo}} 
 						</div>
 
 						<div class="buttons">
-							<a class="button button-light" href="#/app/editarcard/{{combate.namespace}}/{{indiceCard}}">
+							<a class="button button-light" href="#/app/editarcard/{{jogador.namespace}}/{{indiceCard}}">
 								<i class="icon ion-edit"></i>
 							</a>	
 							<button class="button button-light" ng-click="apagarCard(indiceCard)">
 								<i class="icon ion-trash-b"></i>
 							</button>	
-							<a class="button button-light" href="#/app/novaskill/{{combate.namespace}}/{{indiceCard}}">
+							<a class="button button-light" href="#/app/novaskill/{{jogador.namespace}}/{{indiceCard}}">
 								<i class="icon ion-plus"></i> produto
 							</a>			
 						</div>
@@ -211,13 +211,13 @@
 		        							<strong>{{item.ordem}}</strong> - {{item.titulo}} - {{ item.valor}}
 									    </div>
 									    <div ng-if="!item.imagem">
-									        <a href="#/app/editarskill/{{combate.namespace}}/{{indiceCard}}/{{$index}}" class="avatar">
+									        <a href="#/app/editarskill/{{jogador.namespace}}/{{indiceCard}}/{{$index}}" class="avatar">
 									        	<i class="icon ion-image"></i>
 									        </a>   
 									        <strong>{{item.ordem}}</strong> - {{item.titulo}} - {{ item.valor}}   
 									    </div>								
 				                    	<div class="card-footer text-right">
-				                        	<a class="button button-light" href="#/app/editarskill/{{combate.namespace}}/{{indiceCard}}/{{$index}}"><i class="icon ion-edit"></i></a>
+				                        	<a class="button button-light" href="#/app/editarskill/{{jogador.namespace}}/{{indiceCard}}/{{$index}}"><i class="icon ion-edit"></i></a>
 				                        	<button class="button button-light" ng-click="apagarItem($index,indiceCard)"><i class="icon ion-trash-b"></i></button>
 				                        	<div class="pull-left">
 				                        	{{item.descricao}}

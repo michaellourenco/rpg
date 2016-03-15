@@ -7,6 +7,7 @@
 angular.module('app', ['ionic', 
   'app.controllers',
   'app.novochar',
+  'app.novocard',
   'app.skill',
   'app.novaskillnpc',
   'app.novonpc',
@@ -17,7 +18,10 @@ angular.module('app', ['ionic',
   'app.combate',
   'app.combates',
   'app.char',
+  'app.card',
+  'app.cards',
   'app.game',  
+  'app.jogador',
   'app.npc', 
   'app.npcs', 
   'app.quest'])
@@ -89,6 +93,58 @@ angular.module('app', ['ionic',
       }
     }
   }) 
+   .state('app.tabuleiro', {
+    cache: false,
+    url: "/tabuleiro/:namespace/:id/:idinimigo",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/tabuleiro.html",
+        controller: 'LutaCtrl'
+      }
+    }
+  }) 
+    .state('app.jogadores', {
+      cache: false,
+      url: "/jogadores",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/jogadors.html",
+          controller: 'JogadoresCtrl'
+        }
+      }
+    })
+
+    .state('app.novojogador', {
+      cache: false,
+      url: "/novojogador",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/novoJogador.html",
+          controller: 'JogadorCtrl'
+        }
+      }
+    })
+
+  .state('app.jogador', {
+    cache: false,
+    url: "/jogador/:namespace",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/jogador.html",
+        controller: 'JogadorCtrl'
+      }
+    }
+  })
+  .state('app.editarjogador', {
+    cache: false,
+    url: "/editarjogador/:namespace",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/editarJogador.html",
+        controller: 'JogadorCtrl'
+      }
+    }
+  })
     .state('app.combates', {
       cache: false,
       url: "/combates",
@@ -131,7 +187,49 @@ angular.module('app', ['ionic',
       }
     }
   })
-    .state('app.chars', {
+    .state('app.cards', {
+      cache: false,
+      url: "/cards",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/cards.html",
+          controller: 'CardsCtrl'
+        }
+      }
+    })
+
+    .state('app.novocard', {
+      cache: false,
+      url: "/novocard/:namespace",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/novoCard.html",
+          controller: 'NovoCardCtrl'
+        }
+      }
+    })
+
+  .state('app.card', {
+    cache: false,
+    url: "/card/:namespace",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/card.html",
+        controller: 'CardCtrl'
+      }
+    }
+  })
+  .state('app.editarcard', {
+    cache: false,
+    url: "/editarcard/:namespace/:id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/editarCard.html",
+        controller: 'CardCtrl'
+      }
+    }
+  })
+  .state('app.chars', {
       cache: false,
       url: "/chars",
       views: {
@@ -300,5 +398,5 @@ angular.module('app', ['ionic',
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/combates');
+  $urlRouterProvider.otherwise('/app/game');
 });
