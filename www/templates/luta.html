@@ -2,18 +2,6 @@
 <ion-view view-title="{{personagem.titulo}}/{{combate.titulo}}">
 
   <ion-content>
-
-      <div class="row">
-      <div class="col col-50">
-        <div id="inimigo">
-          <div><img ng-src="uploads/{{per2.imagem}}" class="foto" alt="imagem"/></div>
-          <div class="titulo">{{per2.titulo}}</div>
-          <div class="life" style="background-color:#ff0000; width:{{per2.hp/2}}px"><div style="background-color:#00ff00; width:{{per2.hpatual/2}}px">{{per2.hp}}/{{per2.hpatual}}</div></div>
-          <div class="resource" style="background-color:#ff0000; width:{{per2.mana/2}}px"><div style="background-color:#0000ff; width:{{per2.manaatual/2}}px">{{per2.mana}}/{{per2.manaatual}}</div></div>
-          <p ng-bind-html="mesgenemi"></p>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="col col-50">      
         <div id="personagem">
@@ -25,7 +13,16 @@
           <p ng-bind-html="message"></p>
         </div>
       </div>
-      </div> 
+      <div class="col col-50">
+        <div id="inimigo">
+          <div><img ng-src="uploads/{{per2.imagem}}" class="foto" alt="imagem"/></div>
+          <div class="titulo">{{per2.titulo}}</div>
+          <div class="life" style="background-color:#ff0000; width:{{per2.hp/2}}px"><div style="background-color:#00ff00; width:{{per2.hpatual/2}}px">{{per2.hp}}/{{per2.hpatual}}</div></div>
+          <div class="resource" style="background-color:#ff0000; width:{{per2.mana/2}}px"><div style="background-color:#0000ff; width:{{per2.manaatual/2}}px">{{per2.mana}}/{{per2.manaatual}}</div></div>
+          <p ng-bind-html="mesgenemi"></p>
+        </div>
+      </div>
+    </div>
   </ion-content>
 
   <div class="tabs tabs-icon-only">
